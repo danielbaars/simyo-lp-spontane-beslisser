@@ -1,0 +1,118 @@
+extends default
+block head
+	- var metaDescription = 'Simyo heeft diverse goedkope sim only abonnementen. Altijd inzicht in je verbruik en het KPN netwerk maken sim only van Simyo tot de beste keus!'
+	- var pageTitle = 'Sim Only van Simyo'
+	- var companyName = 'Simyo'
+	- var bodyClass = 'lp'
+block content
+	- var min100 = 5
+	- var min200 = 6
+	- var min300 = 7
+	- var min500 = 11
+	- var min1250 = 15
+	- var mb200 = 6
+	- var mb500 = 7
+	- var mb1000 = 9
+	- var mb2000 = 14
+	- var mb4000 = 24
+	- var CTA = 'Kies'
+	- var classNameSmall = 'small'
+	- var classNameMedium = 'medium'
+	- var classNameLarge = 'large'
+	- var headingSmall = 'Voor wie<br>af en toe belt'
+	- var headingShortSmall = 'Af en toe<br>bellen'
+	- var headingMedium = 'Dagelijks bellen<br>en internetten'
+	- var headingShortMedium = 'Voor<br>elke dag'
+	- var headingLarge = 'Als je vooral<br>online bent'
+	- var headingShortLarge = 'Vooral<br>online'
+	- var minSmall = 100
+	- var minMedium = 300
+	- var minLarge = 200
+	- var mbSmall = 0
+	- var mbMedium = 1000
+	- var mbLarge = 2000
+	- var amountSmall = min100
+	- var amountMedium = min300 + mb1000
+	- var amountLarge = min200 + mb2000
+	.masthead__outer
+		.container
+			.masthead
+				.row
+					.col-xs-4.col-ls-3
+						//-a.masthead__logo(href='#{logoLink}' target='_blank'): h1.masthead__site-title #{companyName}
+						a.masthead__logo(href='#' target='_blank'): h1.masthead__site-title #{companyName}
+					.col-xs-8.col-ls-9
+						.proof
+							.proof__item.proof--klantbeoordeling
+								a(href='#') #[i.fa.fa-smile-o] Klantbeoordeling #[span 8.6/10]
+								.proof__tooltip Op #[a(href="#{trustpilotLink}" target="_blank") Trustpilot.nl] waarderen onze klanten ons met een 8,6! (maart 2016)
+							.proof__item.proof--beste
+								a(href='#') #[i.fa.fa-trophy] #[i.beste-uit-test-ikoon.imgc: img(src='img/consumentenbond-beste-uit-de-test-december-2015-382x500px.png')] Beste mobiele provider
+								.proof__tooltip Volgens het #[a(href="#{trustpilotLink}" target="_blank") Consumentenbond] panel zijn wij wéér de beste mobiele provider met een 8,1! (Mobiele ProviderMonitor, december 2015)
+	.hero__outer
+		.container
+			.row
+				.col-xs-12
+					.hero
+						.hero__image: img(src='img/wierd-drinkt-een-biertje-EDIT-418x531px-v2.png')
+						h1.hero__payoff #[span.subheader Sim Only van Simyo.] #[span.header Omdat je bij ons#[br]altijd goed zit.]
+						.beste-uit-test-logo.imgc: img(src='img/consumentenbond-beste-uit-de-test-december-2015-382x500px.png')								
+	.triptych__outer
+		.container
+			.row
+				.col-xs-12
+					.triptych
+						mixin triptych__product(classNameSmall, headingSmall, headingShortSmall, minSmall, null, amountSmall, 1)
+						mixin triptych__product(classNameMedium, headingMedium, headingShortMedium, minMedium, mbMedium, amountMedium, 2)
+						mixin triptych__product(classNameLarge, headingLarge, headingShortLarge, minLarge, mbLarge, amountLarge, 3)
+	.product__outer
+		.container
+			.row							
+				.col-xs-12.col-ts-4.col-ts-npr
+					mixin product(classNameSmall, headingSmall, headingShortSmall, minSmall, null, amountSmall)
+				.col-xs-12.col-ts-4.col-ts-npl.col-ts-npr
+					mixin product(classNameMedium, headingMedium, headingShortMedium, minMedium, mbMedium, amountMedium)
+				.col-xs-12.col-ts-4.col-ts-npl
+					mixin product(classNameLarge, headingLarge, headingShortLarge, minLarge, mbLarge, amountLarge)
+	.zelf-samenstellen__outer
+		.container
+			.row				
+				.col-xs-12
+					.zelf-samenstellen
+						//-a.zelf-samenstellen__link.btn(href='#{simOnlyBestelLink}') Liever zelf samenstellen?
+						a.zelf-samenstellen__link.btn(href='#') Liever zelf samenstellen?
+	.usp-list__outer
+		.container
+			.row
+				.col-xs-12
+					.usp-list
+						.beste-uit-test-logo.imgc: img(src='img/consumentenbond-beste-uit-de-test-december-2015-382x500px.png')
+						ul
+							li.usp-list__item #[i.simyo-vinkje] !{uspBundelAanpassen}
+							li.usp-list__item #[i.simyo-vinkje] !{uspKPN}
+							li.usp-list__item #[i.simyo-vinkje] !{uspOpzegbaar}
+							li.usp-list__item #[i.simyo-vinkje] !{uspNummerbehoud}
+							li.usp-list__item #[i.simyo-vinkje] !{uspSimkaart}						
+	.usp__outer
+		.container
+			.row
+				.col-ts-4.col-ts-one-fifth
+					.usp.usp--bundel-aanpassen
+						.usp__visual: img(src="img/simyo-ikoon-maandelijks-gratis-aanpassen-400x400px.png")
+						h3.usp__heading !{uspBundelAanpassen}
+				.col-ts-4.col-ts-one-fifth
+					.usp.usp--netwerk
+						.usp__visual: img(src="img/simyo-ikoon-betrouwbaar-kpn-netwerk-400x400px.png")
+						h3.usp__heading !{uspKPN}
+				.col-ts-4.col-ts-one-fifth
+					.usp.usp--opzegbaar
+						.usp__visual: img(src="img/simyo-ikoon-uitstekende-service-400x400px.png")
+						h3.usp__heading !{uspOpzegbaar}
+				.col-ts-4.col-ts-one-fifth
+					.usp.usp--nummerbehoud
+						.usp__visual: img(src="img/simyo-ikoon-gratis-nummerbehoud-400x400px.png")
+						h3.usp__heading !{uspNummerbehoud}
+				.col-ts-4.col-ts-one-fifth
+					.usp.usp--simkaart
+						.usp__visual: img(src="img/simyo-ikoon-simkaart-sim-only-prepaid-400x400px.png")
+						h3.usp__heading !{uspSimkaart}					

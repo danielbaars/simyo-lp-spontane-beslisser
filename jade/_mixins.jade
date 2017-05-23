@@ -1,0 +1,73 @@
+mixin product(className, heading, heading_short, min, mb, amount)
+	if min == 100
+		- var minCode = simOnly100MinCode
+	if min == 200
+		- var minCode = simOnly200MinCode
+	if min == 300
+		- var minCode = simOnly300MinCode
+	if min == 500
+		- var minCode = simOnly500MinCode
+	if mb == 0 || mb == null
+		- var mbCode = simOnly0MbCode
+	if mb == 200
+		- var mbCode = simOnly200MbCode
+	if mb == 500
+		- var mbCode = simOnly500MbCode	
+	if mb == 1000
+		- var mbCode = simOnly1000MbCode
+	if mb == 2000
+		- var mbCode = simOnly2000MbCode
+	if mb == 4000
+		- var mbCode = simOnly4000MbCode
+	.product(class='product--#{className}')
+		h2.product__heading !{heading}
+		.product__body
+			.product__content
+				//-h2.product__heading--mobile !{heading_short}
+				.product__min #{min} #[span.min-sms #[span.min min/]#[span.sms sms]]
+				if mb != null
+					.product__mb #{mb} #[span.mb mb]
+			.product__price &euro; #{amount}#[span.comma-hyphen ,-] #[span.per-maand per #[span.maand maand]#[span.maand--abbr mnd]]
+		.product__cta
+			//-a.btn(href='#{simOnlyBestelLink}#{minCode}#{mbCode}') #{CTA}
+			a.btn(href='#') #{CTA}
+
+
+mixin triptych__product(className, heading, heading_short, min, mb, amount, columnNumber)
+	if min == 100
+		- var minCode = simOnly100MinCode
+	if min == 200
+		- var minCode = simOnly200MinCode
+	if min == 300
+		- var minCode = simOnly300MinCode
+	if min == 500
+		- var minCode = simOnly500MinCode
+	if mb == 0 || mb == null
+		- var mbCode = simOnly0MbCode
+	if mb == 200
+		- var mbCode = simOnly200MbCode
+	if mb == 500
+		- var mbCode = simOnly500MbCode	
+	if mb == 1000
+		- var mbCode = simOnly1000MbCode
+	if mb == 2000
+		- var mbCode = simOnly2000MbCode
+	if mb == 4000
+		- var mbCode = simOnly4000MbCode
+	.triptych__column(class='triptych__column--#{columnNumber}')
+		.triptych__cell.triptych__cell--heading
+			h2.triptych__heading.triptych__heading--base !{heading}
+			h2.triptych__heading.triptych__heading--short !{heading_short}
+		.triptych__cell.triptych__cell--body		
+			.triptych__product(class='triptych__product--#{className}')
+				.triptych__body
+					.triptych__content
+						.triptych__min #{min} #[span.min-sms #[span.min min/]#[span.sms sms]]
+						if mb != null
+							.triptych__mb #{mb} #[span.mb mb]
+						else
+							.triptych__mb #[span.number &nbsp;] #[span.mb &nbsp;]
+					.triptych__price &euro; #{amount}#[span.comma-hyphen ,-] #[span.per-maand per #[span.maand maand]#[span.maand--abbr mnd]]
+				.triptych__cta
+					//-a.btn(href='#{simOnlyBestelLink}#{minCode}#{mbCode}') #{CTA}
+					a.btn(href='#') #{CTA}

@@ -1,0 +1,1049 @@
+$row-padding--phone: 15px;
+$row-padding--tablet: 24px;
+$row-padding--desktop: 30px;
+
+@import "mixins";
+
+@import "fonts";
+
+@import "bootstrap";
+
+@import "colors";
+
+@import "bourbon";
+
+
+// BREAKPOINTS
+
+$phone-ls-min: 480px !default;
+$tablet-small-min: 600px !default;
+$tablet-min: 768px !default;
+$desktop-min: 992px !default;
+$desktop-wide-min: 1200px !default;
+
+$breakpoints: (
+	galaxy5s: 360px,
+	iphone6: 375px,
+	iphone6plus: 414px,
+	phone-ls: $phone-ls-min,
+	tablet-small: $tablet-small-min,
+	tablet: $tablet-min,
+	desktop: $desktop-min,
+	desktop-wide: $desktop-wide-min
+);
+
+
+// UTILITY CLASSES
+
+.nw {
+	white-space: nowrap;
+}
+
+.npl {
+	padding-left: 0 !important;
+}
+
+.npr {
+	padding-right: 0 !important;
+}
+
+.imgc {
+	img,
+	svg {
+		max-width: 100%;
+		width: 100%;
+	}
+}
+
+@media #{$tablet-small-only} {
+	.col-ts-npl {
+		padding-left: 0 !important;
+	}
+
+	.col-ts-npr {
+		padding-right: 0 !important;
+	}
+}	
+
+
+// FONT RENDERING
+
+body,
+input,
+button {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+}
+
+// BASE
+
+a {
+	color: $brand-primary;
+}
+
+h1, h2, h3, h4 {
+	font-family: $font-family-headers;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+/* DESKTOP WIDE CONTAINER */
+
+.container {
+	min-width: 320px;
+	@media #{$desktop-wide} {
+		width: $container-desktop;
+	}		
+}
+
+/* GRID */
+
+.col-ts-one-fifth {
+	@include make-ts-column(12/5);
+}
+
+/* ### STATIC ### */
+
+/* COOKIE BOX */
+
+#cookieBox {
+	height: auto !important;
+	left: 15px !important;
+	top: 24% !important;
+	@media #{$galaxys5} {
+		width: auto !important;
+		left: 6vw !important;
+		right: 6vw !important;
+	}
+	@media #{$iphone6plus} {
+		padding: 20px !important;
+	}
+	@media #{$tablet-small} {
+		left: 24vw !important;
+		right: 24vw !important;	
+	}
+	@media #{$desktop} {
+		left: 32vw !important;
+		right: 32vw !important;	
+	}	
+	> img {
+		margin-top: -4px;
+	}
+	br {
+		display: none !important;
+	}
+	> a {
+		font-size: 13px !important;
+		text-decoration: underline !important;
+		display: block !important;
+		float: left !important;
+		text-align: left;
+		width: calc(100% - 162px);
+		margin-top: 10px;
+		@media #{$galaxys5} {
+			margin-top: 8px;
+			font-size: 14px !important;
+			text-align: center;
+		}
+		@media #{$iphone6} {
+			margin-top: 10px;
+		}
+	}
+}
+
+#cookieLeadIn {
+	margin-top: 10px;
+	margin-bottom: 18px;
+	font-size: 13px !important;
+	@media #{$galaxys5} {
+		font-size: 14px !important;
+	}	
+}
+
+/* USABILLA */
+
+.usabilla_live_button_container {
+	display: none !important;
+	@media #{$tablet} {
+		display: block !important;
+	}
+}
+
+/* MASTHEAD */
+
+.masthead__outer--orange {
+	background-color: $simyo-orange;
+}
+	
+.masthead__outer--white {
+	background-color: white;
+}
+	
+.masthead {
+	padding-top: 12px;
+	padding-bottom: 10px;
+}
+		
+.masthead__logo {
+	display: block;
+	background-image: url('../img/simyo-logo-600x189px-oranje.png');
+	background-repeat: no-repeat;
+	background-position: left top;
+	margin-left: 0;	
+}
+	
+.masthead__site-title {
+	display: none;
+}
+
+/* PROOF */
+
+.proof {
+	position: relative;
+	float: right;
+	font-family: $simyo-font-regular;
+	&__item {
+		display: inline-block;
+		&:hover .proof__tooltip {
+			opacity: 1;	
+		}
+		a {
+			color: $text-color;
+			&:hover {
+				color: $simyo-orange;
+				text-decoration: none;
+			}
+			&.add-delay {
+				transition-delay: 1s;
+				pointer-events: auto;
+			}			
+		}
+	}
+	&--klantbeoordeling {
+		span {
+			font-family: $simyo-font-semi-bold;
+		}
+	}	
+	.fa {
+		margin-right: 4px;
+		color: $simyo-orange;
+	}
+	&__tooltip {
+		pointer-events: none;
+		position: absolute;
+		background-color: #dfeded;
+		border-radius: 8px;
+		@include padding-based-on-left(16px, 0, -6px, -6px);
+		margin-top: 10px;
+		z-index: 10;
+		opacity: 0;
+		transition: opacity 500ms ease-in-out;
+		font-family: $font-family-sans-serif;
+		font-size: 14px;
+		a {
+			font-weight: bold;
+		}
+		.proof--klantbeoordeling & {
+			width: 220px;
+		}
+		.proof--beste & {
+			width: 237px;
+			right: 15px;
+		}		
+	}
+
+}
+
+
+
+/* HERO SPACE */
+
+
+.hero {
+	position: relative;
+	&__outer {
+		background-color: $simyo-orange;
+		padding-top: 20px;
+		margin-bottom: 30px;
+	}
+	&__payoff {
+		font-weight: normal;
+		text-align: left;
+		.subheader {
+			color: tint($simyo-orange, 70%);
+			display: block;
+		}
+		.header {
+			padding-top: 2px;
+			font-family: $simyo-font-medium;
+			color: white;
+			display: block;
+		}
+	}
+	.beste-uit-test-logo {
+		@media #{$tablet-small} {
+			position: absolute;
+			right: 0;
+		}
+	}
+}
+
+
+
+
+/* PRODUCTS */
+
+
+.product {
+	background-color: $simyo-light-blue;
+	border-radius: 16px;
+	overflow: hidden;	
+	&__outer {
+		margin-top: -77px;
+		padding-bottom: 30px;
+	}
+	&__heading {
+		@include vertical-padding(8px, 1.3);
+		background-color: $simyo-turquoise;
+		color: white;
+		font-family: $simyo-font-medium;
+		font-weight: normal;
+		font-size: 26px;
+		line-height: 1;
+		text-align: center;
+		.product--medium & {
+			@include vertical-padding(12px, 1.2);
+			font-size: 30px;
+		}
+	}
+	&__body {
+		@include padding-lr(16px);
+		@include clearfix;		
+	}
+	&__min,
+	&__mb {
+		font-family: $simyo-font-medium;
+		.min-sms,
+		.mb {
+			font-size: 0.6em;
+		}
+	}
+	&__content {
+		float: left;
+	}
+	&__price {
+		float: right;
+		background-image: url('../img/simyo-ballon-links-280x233px-turquoise.png');
+		background-repeat: no-repeat;
+		font-family: $simyo-font-medium;
+		color: white;
+		text-align: center;
+		.per-maand {
+			display: block;
+			font-size: 0.52em;			
+		}		
+	}		
+	&__cta {
+		text-align: center;
+		@include padding-lr(16px);		
+		.btn {
+			@include simyo-button();
+			background-color: $simyo-orange;
+			border-bottom-color: #900;
+			font-size: 20px;
+			&:hover {
+				background-color: $simyo-turquoise;
+				border-bottom-color: $blue-dark-cerulean;
+			}
+			.product--medium & {
+				@media #{$tablet-small} {
+					@include vertical-padding(8px, 1.3);
+					font-size: 24px;
+				}
+			}			
+		}
+	}
+}
+
+
+
+
+/* TRIPTYCH  */
+
+
+.triptych {
+	$triptych-padding: 12px;
+	position: relative;
+	overflow: auto;
+	display: table;
+	width: 100%;
+	&__outer {
+		margin-top: -77px;
+		padding-bottom: 20px;		
+	}
+	&__column {
+		display: table-cell;
+		position: relative;
+		z-index: 1;
+		&--1,
+		&--3 {
+			width: 33%;
+		}
+	}	
+	&__cell {
+		border: 1px solid #d6dadd;
+		border-color: tint($simyo-turquoise, 25%);
+		background-color: $simyo-light-blue;
+		padding: $triptych-padding;
+		text-align: center;
+		overflow: hidden;
+		&--heading {
+			border-top: none;
+			border-bottom: none;
+			padding-bottom: 0;
+			.triptych__column--1 & {
+				border-left: none;
+				border-right: none;
+				border-radius: 16px 0 0 0;
+			}			
+			.triptych__column--3 & {
+				border-left: none;
+				border-right: none;
+				border-radius: 0 16px 0 0;
+			}			
+		}
+		&--body {
+			padding: 0;
+			.triptych__column--1 & {
+				border-right: none;
+				border-radius: 0 0 0 16px;
+			}
+			.triptych__column--3 & {
+				border-left: none;
+				border-radius: 0 0 16px 0;
+			}			
+		}	
+	}
+	&__heading {
+		display: block;
+		background-color: $simyo-turquoise;
+		color: white;
+		margin-top: -($triptych-padding);
+		margin-left: -($triptych-padding);
+		margin-right: -($triptych-padding);
+		font-family: $simyo-font-medium;
+		font-weight: normal;
+		@include padding-based-on-left(8px, 0, 0, 0);
+	}
+	&__min,
+	&__mb,
+	&__price {
+		@include padding-based-on-left(12px, 0, -3px, -3px);
+		border-bottom: 1px solid tint($simyo-turquoise, 25%);
+	}
+	&__min,
+	&__mb {
+		font-family: $simyo-font-regular;
+		font-size: 24px;
+		line-height: 0.9;
+		.min-sms,
+		.mb {
+			display: block;
+			margin-top: 3px;
+			font-size: 0.7em;
+		}
+	}
+	&__mb {
+		.triptych__column--1 & {
+			visibility: visible;
+		}
+	}
+	&__price {
+		font-family: $simyo-font-medium;
+		font-size: 28px;
+		line-height: 1;
+		.per-maand {
+			display: block;
+			font-size: 0.6em;
+		}
+		.maand {
+			display: none;
+		}
+	}
+	&__cta {
+		background-color: $simyo-turquoise;
+		@include padding-based-on-left(12px, 0, -4px, -4px);
+		.btn {
+			@include simyo-button($simyo-orange);
+			@include padding-based-on-left(16px, 0, -8px, -8px);		
+		}
+	}
+}
+
+
+/* ZELF SAMENSTELLEN */
+
+
+.zelf-samenstellen {
+	text-align: center;
+	.btn {
+		@include simyo-button();
+	}
+}
+
+/* USPs */
+
+.usp-list {
+	background-color: $simyo-orange;
+	border-radius: 16px;
+	@include padding-based-on-left(16px, 0, -3px, -3px);
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&__outer {
+		margin-bottom: 20px;
+	}
+	ul {
+		list-style: none;
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-left: 0;
+		text-align: left;
+	}
+	.beste-uit-test-logo {
+		width: 20%;
+	}	
+	&__item {
+		font-family: $simyo-font-medium;
+		font-size: 16px;
+		color: white;
+		margin-bottom: 7px;
+		br {
+			display: none;
+		}
+		&:last-child {
+			margin-bottom: 0;
+		}
+		.simyo-vinkje {
+			font-size: 0.9em;
+			margin-right: 5px;
+			display: inline-block; 
+			vertical-align: middle;
+			transform: translateY(-.25em);
+		}
+	}
+}
+
+.usp {
+	&__visual {
+		margin-bottom: 12px;
+		img {
+			max-width: 100%;
+			width: 100%;
+		}
+	}
+	&__heading {
+		text-align: center;
+		font-family: $simyo-font-medium;
+		font-weight: normal;
+	}
+}
+
+
+
+
+
+/* FOOTER */
+
+
+.footer {
+	&__outer {
+		background-color: #fff;
+		padding-top: 14px;
+		padding-bottom: 15px;
+		border-top: 1px dotted #333;
+ 	}
+ 	&__links {
+		ul {
+			display: inline-block;
+			list-style: none;
+			padding-left: 0;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+		li {
+			float: left;
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+		a {
+			font-family: $simyo-font-medium;
+			color: $text-color;
+			&:hover {
+				color: $simyo-orange;
+			}			
+		}
+ 	}
+ 	&__tagline {
+		text-align: center;
+		font-family: $simyo-font-regular;
+		color: $simyo-orange;
+		p {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+ 	}
+}
+
+
+/* ### RESPONSIVE ### */
+
+
+/* MASTHEAD [Responsive] */
+
+.masthead__logo {
+	@include logo-size-by-height(26px, 600px, 189px);
+	@media #{$tablet-small} {
+		@include logo-size-by-height(40px, 600px, 189px);
+	}	
+}
+
+
+/* PROOF [Responsive] */
+
+.proof {
+	padding-top: 0px;
+	font-size: 16px;
+	@media #{$tablet-small} {
+		padding-top: 8px;
+		font-size: 18px;
+	}
+	&--klantbeoordeling {
+		display: none;
+		margin-right: 12px;
+		@media (min-width: 530px) {
+			display: inline-block;
+		}
+		@media #{$tablet-small} {
+			margin-right: 20px;
+		}
+	}
+	&--beste {
+		position: relative;
+		.fa {
+			visibility: hidden;
+		}
+		.beste-uit-test-ikoon {
+			display: inline-block;
+			position: absolute;
+			width: 22px;
+			left: -4px;
+			top: -4px;
+			@media #{$tablet-small} {
+				width: 16px;
+				left: 1px;
+				top: -3px;
+			}
+		}
+	}	
+}
+
+
+
+
+/* HERO SPACE [Responsive] */
+
+
+.hero {
+	&__payoff {
+		font-size: 7vw;
+		line-height: 1.1;
+		margin-top: -4px;
+		margin-bottom: 66px;					
+		@media #{$tablet-small} {
+			margin-top: 0;
+			margin-bottom: 0;
+			padding-top: 23px;
+		}
+		.subheader {
+			@media #{$tablet-small} {
+				font-size: 36px;
+			}
+			@media #{$tablet} {
+				font-size: 44px;
+			}			
+			@media #{$desktop} {
+				font-size: 60px;
+			}
+		}			
+		.header {
+			font-size: 1.25em;
+			@media #{$tablet-small} {
+				font-size: 43px;
+			}
+			@media #{$tablet} {
+				font-size: 54px;
+			}
+			@media #{$desktop} {
+				font-size: 72px;
+			}			
+		}
+	}
+	.beste-uit-test-logo {
+		display: none;
+		@media #{$tablet-small} {
+			display: block;
+			bottom: 5px;
+			width: 80px;
+		}
+		@media #{$tablet} {
+			width: 100px;
+		}
+		@media #{$desktop} {
+			bottom: 10px;
+			width: 132px;
+		}		
+	}	
+}
+
+
+.hero {
+	&__outer {
+		@media #{$tablet} {
+			overflow: hidden;
+			height: 308px;
+		}
+		@media #{$desktop} {
+			height: 386px;
+		}		
+	}
+	&__image {
+		float: left;
+		width: 34%;
+		margin-right: 10px;
+		img {
+			max-width: 100%;
+			width: 100%;
+		}
+	}
+}
+
+
+/* PRODUCTS [Responsive] */
+
+
+.product {
+	margin-bottom: 20px;
+	@media #{$tablet-small} {
+		margin-bottom: 0;
+	}
+	&--medium {
+		@media #{$tablet-small} {
+			margin-top: -16px;
+		}
+	}	
+	&__outer {
+		display: none;
+		@media #{$tablet} {
+			display: block;
+		}
+	}
+	&__heading {
+		display: none;
+		@include vertical-padding(8px, 1.3);
+		font-size: 26px;
+		@media #{$tablet-small} {
+			display: block;
+		}
+		.product--medium & {
+			@include vertical-padding(12px, 1.2);
+			font-size: 30px;
+		}
+	}
+	&__body {
+		padding-top: 16px;
+		padding-bottom: 6px;
+		@media #{$tablet-small} {
+			padding-bottom: 16px;
+		}
+		.product--medium & {
+			@media #{$tablet-small} {
+				padding-top: 24px;
+			}
+		}		
+	}
+	&__min,
+	&__mb {
+		font-size: 23px;
+		line-height: 1.2;
+		float: left;
+		@media #{$tablet-small} {
+			float: none;
+		}
+		@media #{$desktop} {
+			font-size: 33px;
+		}
+	}
+	&__min {
+		@media (max-width: 599px) {
+			margin-right: 35px;
+			.min-sms {
+				display: inline-block;
+				position: relative;
+			}
+			.min,
+			.sms {
+				position: absolute;
+			}
+			.min {
+				bottom: 8px;
+			}
+			.sms {
+				bottom: -3px;
+			}
+		}
+	}	
+	&__content {
+		width: 170px;
+		@media #{$tablet-small} {
+			padding-top: 6px;
+		}
+		@media #{$tablet} {
+			width: 100px;
+		}
+		@media #{$desktop} {
+			width: 140px;
+		}		
+		.product--small & {
+			@media #{$tablet-small} {
+				padding-top: 17px;
+			}			
+			@media #{$desktop} {
+				padding-top: 24px;
+			}
+		}
+	}
+	&__price {
+		padding-left: 4px;
+		padding-top: 8px;
+		@include logo-size-by-width(72px, 280px, 231px);
+		font-size: 28px;
+		line-height: 0.9;
+		@media #{$tablet-small} {
+			line-height: 1;
+			padding-left: 5px;
+			padding-top: 11px;
+			@include logo-size-by-width(84px, 280px, 231px);
+		}
+		@media #{$desktop} {
+			padding-top: 15px;
+			@include logo-size-by-width(118px, 280px, 231px);
+			font-size: 38px;
+		}
+		.comma-hyphen {
+			display: none;
+			@media (min-width: 360px) {
+				display: inline;
+			}
+		}
+		.per-maand {
+			display: block;
+			font-size: 0.52em;
+			.maand {
+				display: none;
+				@media #{$tablet-small} {
+					display: inline;
+				}
+			}
+			.maand--abbr {
+				@media #{$tablet-small} {
+					display: none;
+				}
+			}			
+		}		
+	}		
+	&__cta {
+		padding-bottom: 16px;
+		.product--medium & {
+			@media #{$tablet-small} {
+				padding-bottom: 24px;
+			}
+		}		
+		.btn {
+			@media #{$tablet-small} {
+				margin-top: 0;
+			}
+			.product--medium & {
+				@media #{$tablet-small} {
+					@include vertical-padding(8px, 1.3);
+					font-size: 24px;
+				}
+			}			
+		}
+	}
+}
+
+
+/* TRIPTYCH [Responsive] */
+
+.triptych {
+	&__outer {
+		@media #{$tablet} {
+			display: none;
+		}		
+	}	
+	&__heading {
+		$triptych-heading--fs: (
+			null: (20px, 1.0),
+			iphone6plus: 18px,
+			phone-ls: 20px,
+			tablet-small: 24px
+		);
+		@include font-size($triptych-heading--fs);
+		&--base {
+			display: none;
+			@media #{$iphone6plus} {
+				display: block;
+			}
+		}
+		&--short {
+			@media #{$iphone6plus} {
+				display: none;
+			}			
+		}
+	}
+	&__cta {
+		.btn {
+			font-size: 18px;
+			@media #{$tablet-small} {
+				font-size: 20px;
+			}		
+		}
+	}
+}
+
+/* ZELF SAMENSTELLEN [Responsive]*/
+
+
+.zelf-samenstellen {
+	&__outer {
+		padding-bottom: 20px;
+		@media #{$tablet} {
+			padding-bottom: 30px;
+		}
+	}
+	.btn {
+		font-size: 20px;
+		@media #{$tablet} {
+			font-size: 24px;
+		}
+	}
+}
+
+
+/* USPs [Responsive] */
+
+.usp-list {
+	&__outer {
+		@media #{$tablet-small} {
+			display: none;
+		}
+	}
+	.beste-uit-test-logo {
+		margin-right: 15px;
+		@media #{$phone-ls} {
+			margin-right: 20px;
+		}	
+	}
+	ul {
+		@media (min-width: 360px) {
+			margin-right: 6px;
+		}
+		@media #{$iphone6plus} {
+			margin-right: 12px;
+		}
+	}
+	&__item {
+		font-size: 15px;
+		@media (min-width: 360px) {
+			font-size: 16px;
+		}
+		@media #{$iphone6plus} {
+			font-size: 18px;
+		}
+	}
+}
+
+
+.usp {
+	margin-bottom: 20px;
+	@media #{$tablet} {
+		margin-bottom: 0;
+	}
+	&__outer {
+		display: none;
+		padding-bottom: 30px;
+		@media #{$tablet-small} {
+			display: block;
+			padding-bottom: 0;
+		}
+		@media #{$tablet} {
+			padding-bottom: 30px;
+		}
+	}
+	&__heading {
+		font-size: 18px;
+		line-height: 1.1;
+		@media #{$desktop} {
+			font-size: 24px;
+		}
+	}
+}
+
+
+
+/* FOOTER [Responsive] */
+
+
+.footer {
+ 	&__links {
+		margin-top: -3px;
+		margin-bottom: 4px;
+		text-align: center;
+		@media #{$tablet-small} {
+			text-align: left;
+			margin-bottom: 0;
+		}
+		@media #{$tablet} {
+			margin-top: 4px;
+		}
+		li {
+			margin-right: 12px;
+			&:last-child {
+				margin-right: 0;
+			}
+			@media #{$phone-ls} {
+				margin-right: 20px;
+			}
+		}
+		a {
+			font-size: 14px;
+			@media #{$phone-ls} {
+				font-size: 15px;
+			}			
+		}
+ 	}
+ 	&__tagline {
+		font-size: 20px;
+		line-height: 1;
+		@media #{$tablet-small} {
+			float: right;
+		}
+		@media #{$tablet} {
+			font-size: 28px;
+		}
+ 	}
+}

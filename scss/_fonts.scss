@@ -1,0 +1,40 @@
+@import "fontface";
+
+[class^="simyo-"], [class*=" simyo-"] {
+	font-family: 'Simyo-Icons';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.simyo-vinkje:before {
+	content: "\76";
+}
+
+// FONTS
+
+$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-headers: "Simyo Regular", Arial, sans-serif !default;
+$font-size-base: 16px;
+
+// FONT WEIGHTS
+
+$thin: 100;
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+$extra-bold: 800;
+$black: 900;
+
+$simyo-font-regular: "Simyo Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$simyo-font-medium: "Simyo Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$simyo-font-semi-bold: "Simyo Semi-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$simyo-font-bold: "Simyo Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
